@@ -1,0 +1,44 @@
+POLEKRAFT – App auf Helmas iPhone bringen
+Version 11.26.1 · ca. 10 Minuten, einmalig
+
+Polekraft ist eine eigenständige Web-App neben Kraftwerk. Sie hat einen eigenen
+Speicher („polekraft.v1“), einen eigenen Offline-Cache („polekraft-11.26.1“),
+ein eigenes Symbol und eine eigene Adresse. An Kraftwerk ändert sich nichts.
+
+AUF GITHUB HOCHLADEN (wie bei Kraftwerk)
+1. Auf github.com oben rechts „+“ → „New repository“.
+   Name: polekraft → „Public“ → „Create repository“.
+2. „uploading an existing file“ anklicken und ALLE Dateien aus diesem Ordner
+   hineinziehen: index.html, sw.js, manifest.webmanifest, heart.png,
+   alle icon-*.png und alle splash-*.png → „Commit changes“.
+3. Im Repository: „Settings“ → „Pages“ → bei „Branch“ „main“ wählen → „Save“.
+   Nach 1–2 Minuten ist die App erreichbar unter
+   https://DEINNAME.github.io/polekraft/
+   (Kraftwerk bleibt unter https://DEINNAME.github.io/kraftwerk/)
+
+AUF HELMAS IPHONE
+4. Die Adresse in Safari öffnen → Teilen-Symbol → „Zum Home-Bildschirm“.
+5. Die App einmal mit Internet vom Home-Bildschirm starten. Ab dann läuft sie offline.
+6. Beim ersten Start: Name, Wochenziel und Orte (Homegym, Einhaus, NewPoint) prüfen
+   → „Los geht’s – Plan bauen“. Dann im Planbauer die Trainingstage anlegen.
+
+WICHTIG
+· Alle Daten liegen nur auf dem jeweiligen iPhone.
+· Ab und zu unter Einstellungen → Daten → „Sicherung exportieren“ sichern
+  (z. B. in iCloud Drive). Die App erinnert sonntags daran.
+· Eine Sicherung lässt sich auch direkt auf dem Begrüßungsbildschirm wieder einspielen
+  (z. B. auf einem neuen iPhone).
+
+UPDATES
+· Neue index.html hochladen und in sw.js die Versionsnummer erhöhen
+  (Schema Monat.Jahr.Nummer, z. B. polekraft-11.26.1 → polekraft-11.26.2).
+  Beim nächsten Start mit Internet wird aktualisiert.
+
+HINWEIS ZU KRAFTWERK (optional, beim nächsten Kraftwerk-Update)
+Beide Apps liegen auf derselben Domain. Deine Kraftwerk-sw.js löscht beim
+Aktualisieren alle fremden Caches – auch den von Polekraft, falls beide Apps im
+selben Browser genutzt werden. Auf zwei verschiedenen iPhones spielt das keine Rolle;
+die Polekraft-Daten selbst sind davon nie betroffen. Wer es ganz sauber will, ändert
+in der Kraftwerk-sw.js beim nächsten Update die Zeile mit „caches.delete“ so, dass nur
+eigene Caches gelöscht werden:
+  ks.filter(k => k !== CACHE && /^kraftwerk-\d/.test(k))
